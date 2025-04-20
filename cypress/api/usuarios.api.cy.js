@@ -17,11 +17,6 @@ describe('Trabalhando com os Usuarios', () => {
         method: 'GET',
         url: 'https://serverest.dev/usuarios',
         }).then(res => {
-            console.log(res.body.usuarios[0])
-            cy.log(res.body.usuarios[0])
-
-            const user1 = res.body.usuarios[0]
-            const idUser = res.body.usuarios[0]._id
             expect(res.status).to.eq(200)
         })
     })
