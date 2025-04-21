@@ -36,8 +36,19 @@ Cypress.Commands.add('listandoUser', (user) =>{
     })
 })
 
+let emaill
+let passwordd
+
 Cypress.Commands.add('createUser', (nome) =>{
     let number = Math.floor(Math.random() * 9999)
+    const email = `${nome}${number}@qa.com.br`
+    const password = "teste"
+
+    emaill = email
+    passwordd = password
+
+    Cypress.env('userEmail', email)
+    Cypress.env('userPassword', password)
 
     cy.request({
         method: 'POST',
@@ -47,9 +58,33 @@ Cypress.Commands.add('createUser', (nome) =>{
         },
         body: {
             "nome": nome,
-            "email": `${nome}${number}@qa.com.br`,
-            "password": "teste",
+            "email": email,
+            "password": password,
             "administrador": "true"
         }
+    })
+})
+
+Cypress.Commands.add('loginInUserCreate', () => {
+    cy.createUser('Fuzarii').then(() => {
+
+        const email = Cypress.env('userEmail')
+        const password = Cypress.env('userPassword')
+        console.log(email)
+        console.log(password)
+        console.log(emaill)
+        console.log(passwordd)
+
+        cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/login',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                "email": email,
+                "password": password
+            }
+        })
     })
 })

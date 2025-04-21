@@ -80,7 +80,7 @@ describe('Trabalhando com os Usuarios', () => {
     })
 
     it('Excluir um usuario', () => {
-        cy.createUser('Renato').then(user =>{
+        cy.createUser('Deivid').then(user =>{
             cy.request({
                 method: 'DELETE',
                 url: `https://serverest.dev/usuarios/${user.body._id}`
