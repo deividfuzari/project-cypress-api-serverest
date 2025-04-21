@@ -1,2 +1,2 @@
 # new-project-api-serverest
- Projeto Cypress voltado a API com o serverest
+ Projeto cypress para testar API, utilizando o swagger do severest.
