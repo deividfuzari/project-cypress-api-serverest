@@ -26,6 +26,8 @@
 
 //listando usuario por index
 
+
+
 Cypress.Commands.add('listandoUser', (user) =>{
     cy.request({
         method: 'GET',
@@ -85,6 +87,33 @@ Cypress.Commands.add('loginInUserCreate', () => {
                 "email": email,
                 "password": password
             }
+        }).then(res => {
+            Cypress.env('authToken', res.body.authorization)
         })
+    })
+})
+
+Cypress.Commands.add('registerProductId', (name) => {
+    let number = Math.floor(Math.random() * 99999)
+
+    cy.loginInUserCreate().then(res => {
+       const token = res.body.authorization
+
+       cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/produtos',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization : token
+            },
+            body: {
+                "nome": `Logitech${name}${number} MX Vertical`,
+                "preco": 470,
+                "descricao": "Mouse",
+                "quantidade": 381
+            }
+       }).then(res => {
+        return res.body._id
+       })
     })
 })

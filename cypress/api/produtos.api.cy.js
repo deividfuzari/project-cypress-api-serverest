@@ -20,7 +20,6 @@ describe('Trabalhando com Produtos', () => {
             qs: {
                 _id: "BeeJh5lz3k6kSIzA",
                 nome: "Logitech MX Vertical",
-                quantidade: 376,
                 descricao: "Mouse",
                 preco: 470
             }
@@ -49,6 +48,33 @@ describe('Trabalhando com Produtos', () => {
                 }
             }).then(res => {
                 expect(res.body.message).to.eq("Cadastro realizado com sucesso")
+            })
+        })
+    })
+
+    it('Buscar produto', () => {
+        cy.registerProductId('Deivid').then(idProduct => {
+            cy.request({
+                method: 'GET',
+                url : `https://serverest.dev/produtos/${idProduct}`
+            }).then(res => {
+                expect(res.status).to.eq(200)
+            })
+        })
+    })
+
+    it('Deletar Produto', () => {
+        cy.registerProductId('Fuzari').then(idProduct => {
+            const token = Cypress.env('authToken')
+
+            cy.request({
+                method: 'DELETE',
+                url: `https://serverest.dev/produtos/${idProduct}`,
+                headers: {
+                    authorization: token
+                }
+            }).then(res => {
+                console.log(res)
             })
         })
     })
