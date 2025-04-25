@@ -74,7 +74,30 @@ describe('Trabalhando com Produtos', () => {
                     authorization: token
                 }
             }).then(res => {
-                console.log(res)
+                expect(res.body.message).to.eq("Registro excluído com sucesso")
+            })
+        })
+    })
+
+    it('Editar Produto', ()=> {
+        cy.registerProductId('mouseTOP').then(idProduct => {
+            const token = Cypress.env('authToken')
+
+            cy.request({
+                method: 'PUT',
+                url: `https://serverest.dev/produtos/${idProduct}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: token
+                },
+                body: {
+                    "nome": `Logitech${number} MX Vertical`,
+                    "preco": 470,
+                    "descricao": "Mouse",
+                    "quantidade": 381
+                }
+            }).then(res => {
+                expect(res.body.message).to.eq("Registro alterado com sucesso")
             })
         })
     })

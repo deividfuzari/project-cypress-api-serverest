@@ -97,7 +97,7 @@ Cypress.Commands.add('registerProductId', (name) => {
     let number = Math.floor(Math.random() * 99999)
 
     cy.loginInUserCreate().then(res => {
-       const token = res.body.authorization
+       const token = Cypress.env('authToken')
 
        cy.request({
             method: 'POST',
