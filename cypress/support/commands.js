@@ -117,3 +117,27 @@ Cypress.Commands.add('registerProductId', (name) => {
        })
     })
 })
+
+Cypress.Commands.add('registerCart', () => {
+    cy.registerProductId('cart').then( idProduct => {
+        
+        const token = Cypress.env('authToken')
+
+        cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization : token
+            },
+            body: {
+                "produtos":[
+                    {
+                        "idProduto": idProduct,
+                        "quantidade": 2
+                    }
+                ]  
+            }
+        })
+    })  
+})
