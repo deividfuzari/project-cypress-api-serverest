@@ -12,15 +12,13 @@ describe('fazer login do serveRest Api', () => {
             body: {
                 "email": "fulano@qa.com",
                 "password": "teste"
-              },
-              failOnStatusCode: false
-              
+            },
+            failOnStatusCode: false
+
         }).then(res => {
-            cy.log(res.body.message)
-            cy.log(res.body.authorization)
             const token = res.body.authorization
             console.log(token)
-            expect(res.body.message).to.eq("Email e/ou senha inválidos")
+            expect(res.body.message).to.eq("Login realizado com sucesso")
         })
     })
 })
