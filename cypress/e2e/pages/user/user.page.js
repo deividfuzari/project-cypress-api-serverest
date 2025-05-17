@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 import { faker } from "@faker-js/faker"
-import loginElements from "../pages/login/login.elements"
+import loginElements from "../login/login.elements"
 import { userElements } from "./user.elements"
 
 class userPage {

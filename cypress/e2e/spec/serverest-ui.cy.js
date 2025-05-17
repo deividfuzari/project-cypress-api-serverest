@@ -2,7 +2,7 @@
 
 import homePage from "../pages/home/home.page"
 import loginPage from "../pages/login/login.page"
-import userPage from "../user/user.page"
+import userPage from "../pages/user/user.page"
 
 
 
