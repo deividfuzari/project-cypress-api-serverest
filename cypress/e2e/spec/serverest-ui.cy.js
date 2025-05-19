@@ -17,5 +17,7 @@ describe('Fluxo do usuario de admin', () => {
         loginPage.validateSuccsessLogin()
         homePage.clickOnRegisterUser()
         userPage.registerUser({})
+        userPage.confirmRegisterUser()
+        userPage.deleteUser()
     })
 })

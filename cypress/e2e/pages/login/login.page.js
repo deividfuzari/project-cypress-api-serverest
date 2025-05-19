@@ -13,8 +13,8 @@ class loginPage {
     }
 
     loginAdmin(data) {
-        const email = data.email || 'teste2@hotmail.com'
-        const password = data.password || '123456'
+        const email = data.email || 'fulano@qa.com'
+        const password = data.password || 'teste'
 
         cy.get(loginElements.field_email).type(email)
         cy.get(loginElements.field_password).type(password)

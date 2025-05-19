@@ -13,7 +13,7 @@ describe('Trabalhando com Produtos', () => {
         })
     })
 
-    it('Listando um Produto usando query', () =>{
+    it('Listando um Produto usando query', () => {
         cy.request({
             method: 'GET',
             url: 'https://serverest.dev/produtos',
@@ -25,14 +25,15 @@ describe('Trabalhando com Produtos', () => {
             }
         }).then(res => {
             const nameProduct = res.body.produtos[0].nome
-    
+
             expect(nameProduct).to.eq("Logitech MX Vertical")
         })
     })
 
-    it('Cadastrar um produto', () =>{        
+    it('Cadastrar um produto', () => {
         cy.loginInUserCreate().then(res => {
             const token = res.body.authorization
+
             cy.request({
                 method: 'POST',
                 url: 'https://serverest.dev/produtos',
@@ -56,7 +57,7 @@ describe('Trabalhando com Produtos', () => {
         cy.registerProductId('Deivid').then(idProduct => {
             cy.request({
                 method: 'GET',
-                url : `https://serverest.dev/produtos/${idProduct}`
+                url: `https://serverest.dev/produtos/${idProduct}`
             }).then(res => {
                 expect(res.status).to.eq(200)
             })
@@ -79,7 +80,7 @@ describe('Trabalhando com Produtos', () => {
         })
     })
 
-    it('Editar Produto', ()=> {
+    it('Editar Produto', () => {
         cy.registerProductId('mouseTOP').then(idProduct => {
             const token = Cypress.env('authToken')
 
