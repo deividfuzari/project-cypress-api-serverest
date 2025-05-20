@@ -2,6 +2,7 @@
 
 import homePage from "../pages/home/home.page"
 import loginPage from "../pages/login/login.page"
+import productPage from "../pages/product/product.page"
 import userPage from "../pages/user/user.page"
 
 
@@ -19,5 +20,30 @@ describe('Fluxo do usuario de admin', () => {
         userPage.registerUser({})
         userPage.confirmRegisterUser()
         userPage.deleteUser()
+    })
+
+    it('Fazer cadastro do produto', () => {
+        loginPage.loginAdmin({})
+        loginPage.validateSuccsessLogin()
+        homePage.clickOnRegisterProduct()
+        productPage.registerProduct({})
+        productPage.confirmRegisterProduct()
+        productPage.deleteProduct()
+    })
+
+    it('Cadastrar usuario e prduto, depois deslogar', () => {
+        loginPage.loginAdmin({})
+        loginPage.validateSuccsessLogin()
+        homePage.clickOnRegisterUser()
+        userPage.registerUser({})
+        userPage.confirmRegisterUser()
+        userPage.deleteUser()
+        homePage.clickOnHome()
+        homePage.clickOnRegisterProduct()
+        productPage.registerProduct({})
+        productPage.confirmRegisterProduct()
+        productPage.deleteProduct()
+        homePage.clickOnLogout()
+        loginPage.validateSuccsessLogout()
     })
 })

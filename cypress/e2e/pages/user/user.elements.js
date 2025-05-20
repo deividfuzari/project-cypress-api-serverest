@@ -4,3 +4,5 @@ export const userElements = {
     field_name: '#nome',
     btn_deleteUser: 'button.btn.btn-danger'
 }
+
+export default userElements
