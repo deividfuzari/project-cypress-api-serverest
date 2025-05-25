@@ -5,8 +5,6 @@ import loginPage from "../pages/login/login.page"
 import productPage from "../pages/product/product.page"
 import userPage from "../pages/user/user.page"
 
-
-
 describe('Fluxo do usuario de admin', () => {
 
     beforeEach(() => {

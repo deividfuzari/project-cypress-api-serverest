@@ -6,22 +6,22 @@ describe('Trabalhando com os Usuarios', () => {
     let userIdCreate = null
     let number = Math.floor(Math.random() * 9999)
 
-    beforeEach(()=>{
-        cy.listandoUser(0).then(user =>{
+    beforeEach(() => {
+        cy.listandoUser(0).then(user => {
             user1 = user
         })
     })
 
-    it('Listando os usuarios', function() {
+    it('Listando os usuarios', function () {
         cy.request({
-        method: 'GET',
-        url: 'https://serverest.dev/usuarios',
+            method: 'GET',
+            url: 'https://serverest.dev/usuarios',
         }).then(res => {
             expect(res.status).to.eq(200)
         })
     })
 
-    it('listando o primeiro Usuario', function() {
+    it('listando o primeiro Usuario', function () {
 
         cy.request({
             method: 'GET',
@@ -38,7 +38,7 @@ describe('Trabalhando com os Usuarios', () => {
         })
     })
 
-    it('listando o Usuario desejado com o metodo criado', function() {
+    it('listando o Usuario desejado com o metodo criado', function () {
         cy.listandoUser(0).then(user => {
             expect(user).to.have.property('nome')
             expect(user).to.have.property('email')
@@ -48,7 +48,7 @@ describe('Trabalhando com os Usuarios', () => {
         })
     })
 
-    it('Cadastrar um usuario', () =>{
+    it('Cadastrar um usuario', () => {
 
         cy.request({
             method: 'POST',
@@ -73,14 +73,14 @@ describe('Trabalhando com os Usuarios', () => {
     it('buscar usuario por ID', () => {
         cy.request({
             method: 'GET',
-            url : `https://serverest.dev/usuarios/${user1._id}`
+            url: `https://serverest.dev/usuarios/${user1._id}`
         }).then(res => {
             expect(res.status).to.eq(200)
         })
     })
 
     it('Excluir um usuario', () => {
-        cy.createUser('Deivid').then(user =>{
+        cy.createUser('Deivid').then(user => {
             cy.request({
                 method: 'DELETE',
                 url: `https://serverest.dev/usuarios/${user.body._id}`
@@ -96,11 +96,11 @@ describe('Trabalhando com os Usuarios', () => {
             cy.request({
                 method: 'PUT',
                 url: `https://serverest.dev/usuarios/${res.body._id}`,
-                body: {  
+                body: {
                     "nome": "Fulano da Silva",
                     "email": `beltrano${number}@qa.com.br`,
                     "password": "teste",
-                    "administrador": "true"   
+                    "administrador": "true"
                 }
             }).then(res => {
                 expect(res.body.message).to.eq("Registro alterado com sucesso")

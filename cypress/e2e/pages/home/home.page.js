@@ -7,7 +7,7 @@ const nameProduct = 'Logitech MX Vertical'
 class homePage {
 
     clickOnRegisterUser() {
-        cy.get(homeElements.btn_registerUser).click()   
+        cy.get(homeElements.btn_registerUser).click()
     }
 
     clickOnRegisterProduct() {
@@ -23,8 +23,7 @@ class homePage {
     }
 
     addProductList() {
-        cy.contains('div',nameProduct).find(homeElements.btn_addList).click()
-        
+        cy.contains('div', nameProduct).find(homeElements.btn_addList).click()
     }
 }
 

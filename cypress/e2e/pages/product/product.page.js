@@ -11,7 +11,6 @@ const listEmpty = 'Seu carrinho está vazio'
 class productPage {
 
     registerProduct(data) {
-        
         const price = data.price || '99999'
         const description = data.description || 'Veiculo'
         const quantity = data.quantity || '99999'
