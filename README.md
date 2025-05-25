@@ -1,5 +1,8 @@
 # new-project-api-serverest
- Projeto cypress para testar API, utilizando o swagger do severest.
+
+ Projeto cypress para testar API e UI do site serverest : https://serverest.dev/
+
+Testes de API utilizando o swagger do severest.
 
  Carrinho
  
@@ -16,3 +19,11 @@ Produtos
 Usuarios
 
 ![image](https://github.com/user-attachments/assets/6331d656-d3f3-4375-93dc-a52fa50f366f)
+
+_______________________________________________________________________________________________
+
+Testes de UI, fluxos de um usuario admin e normal.
+
+![image](https://github.com/user-attachments/assets/2f9c438b-20d5-421c-bcec-fdaf5205a059)
+
+
