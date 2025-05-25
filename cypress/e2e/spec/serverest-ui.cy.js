@@ -54,7 +54,7 @@ describe('Fluxo de um usuario normal', () => {
         loginPage.accsessUrl()
     })
 
-    it('adicionar um produto no carrinho', () => {
+    it('adicionar um produto na lista e no carrinho', () => {
         loginPage.createUserNormal({})
         loginPage.validateCreateUser()
         homePage.addProductList()
