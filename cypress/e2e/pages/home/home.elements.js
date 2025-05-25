@@ -7,7 +7,8 @@ export const homeElements = {
     btn_seeReport: 'a[data-testid="relatorios"]',
     message_admin: 'p[class="lead"]',
     btn_logout: 'button[data-testid="logout"]',
-    btn_home: 'a[data-testid="home"]'
+    btn_home: 'a[data-testid="home"]',
+    btn_addList: 'button[data-testid="adicionarNaLista"]'
 }
 
 export default homeElements

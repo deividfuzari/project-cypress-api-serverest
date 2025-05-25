@@ -11,7 +11,7 @@ describe('Fluxo do usuario de admin', () => {
 
     beforeEach(() => {
         loginPage.accsessUrl()
-    }) 
+    })
 
     it('fazer cadastro de usuario', () => {
         loginPage.loginAdmin({})
@@ -31,7 +31,7 @@ describe('Fluxo do usuario de admin', () => {
         productPage.deleteProduct()
     })
 
-    it('Cadastrar usuario e prduto, depois deslogar', () => {
+    it('Cadastrar usuario e produto, depois deslogar', () => {
         loginPage.loginAdmin({})
         loginPage.validateSuccsessLogin()
         homePage.clickOnRegisterUser()
@@ -45,5 +45,30 @@ describe('Fluxo do usuario de admin', () => {
         productPage.deleteProduct()
         homePage.clickOnLogout()
         loginPage.validateSuccsessLogout()
+    })
+})
+
+describe('Fluxo de um usuario normal', () => {
+
+    beforeEach(() => {
+        loginPage.accsessUrl()
+    })
+
+    it('adicionar um produto no carrinho', () => {
+        loginPage.createUserNormal({})
+        loginPage.validateCreateUser()
+        homePage.addProductList()
+        productPage.addingProduct()
+        productPage.addingToCart()
+        productPage.validateCart()
+    })
+
+    it('adicionar um produto na lista e remover do carrinho', () => {
+        loginPage.createUserNormal({})
+        loginPage.validateCreateUser()
+        homePage.addProductList()
+        productPage.addingProduct()
+        productPage.removeProductList()
+        productPage.validateRemoveList()
     })
 })

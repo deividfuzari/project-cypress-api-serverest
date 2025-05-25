@@ -5,6 +5,8 @@ import productElements from "./product.elements"
 import userElements from "../user/user.elements"
 
 const name = faker.vehicle.vehicle() + Math.floor(Math.random() * 10)
+const pageCart = 'Em construção aguarde'
+const listEmpty = 'Seu carrinho está vazio'
 
 class productPage {
 
@@ -30,6 +32,26 @@ class productPage {
     deleteProduct() {
         cy.contains('tr', name).should('be.visible').find(userElements.btn_deleteUser).click()
         cy.contains('tr', name).should('not.exist')
+    }
+
+    addingProduct() {
+        cy.get(productElements.btn_addingProduct).click().click()
+    }
+
+    addingToCart() {
+        cy.get(productElements.btn_addingToCart).click()
+    }
+
+    validateCart() {
+        cy.contains('h1', pageCart).should('be.visible')
+    }
+
+    removeProductList() {
+        cy.get(productElements.btn_removeList).click()
+    }
+
+    validateRemoveList() {
+        cy.contains(productElements.message_cartEmpty, listEmpty).should('be.visible')
     }
 }
 
