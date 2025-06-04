@@ -34,6 +34,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npx cypress run
+          spec: cypress/e2e/spec/serverest-ui.cy.js
           wait-on: 'https://serverest.dev/'
           record: true
           parallel: false 
