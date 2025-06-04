@@ -1,4 +1,4 @@
-name: Cypress E2E Tests 
+name: Cypress E2E Tests
 
 on: workflow_dispatch
 
@@ -15,6 +15,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.2.0
+        if: always()
+        env:
+          SLACK_CHANNEL: notification-tests
+          SLACK_USERNAME: qas
+          SLACK_COLOR: '#1e81b0'
+          MSG_MINIMAL: event,actions url
+          SLACK_TITLE: 'Iniciando a execução dos tests: ' 
+          SLACK_MESSAGE: ':loading_slack:'
+          SLACK_FOOTER: Powered By Serverest
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
@@ -25,4 +39,17 @@ jobs:
           parallel: false 
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.2.0
+        if: always()
+        env:
+          SLACK_CHANNEL: notification-tests
+          SLACK_USERNAME: qas
+          SLACK_COLOR: ${{ job.status }}
+          MSG_MINIMAL: event,actions url
+          SLACK_TITLE: 'Resultados dos tests: ' 
+          SLACK_MESSAGE: ':loading_slack:'
+          SLACK_FOOTER: Powered By Serverest
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         
