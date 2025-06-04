@@ -11,6 +11,7 @@ node_modules
 cypress/reports
 mochawesome-report
 test-results
+results
 
 # Logs
 logs
@@ -19,4 +20,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode
-.DS_Store
+.npm run 
