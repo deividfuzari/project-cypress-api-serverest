@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: "szbr1p",
   e2e: {
     defaultCommandTimeout: 10000,
     setupNodeEvents(on, config) {

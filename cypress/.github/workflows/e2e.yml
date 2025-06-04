@@ -1,0 +1,28 @@
+name: Cypress E2E Tests 
+
+on: workflow_dispatch
+
+jobs:
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false 
+      matrix:
+        containers: [1]
+        
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npx cypress run
+          wait-on: 'https://serverest.dev/'
+          record: true
+          parallel: false 
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        
