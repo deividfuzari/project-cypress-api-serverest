@@ -2,6 +2,12 @@
 
  Projeto cypress para testar API e UI do site serverest : https://serverest.dev/
 
+ Utilizando integração com o slack para receber notificações de resultados dos testes.
+
+![image](https://github.com/user-attachments/assets/fda87fb5-7e5a-4e64-b306-4dda91db671f)
+
+_______________________________________________________________________________________________
+
 Testes de API utilizando o swagger do severest.
 
  Carrinho
