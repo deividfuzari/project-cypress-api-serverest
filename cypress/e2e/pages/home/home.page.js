@@ -2,7 +2,7 @@
 
 import homeElements from "./home.elements";
 
-const nameProduct = 'Logitech MX Vertical'
+const nameProduct = 'Logitech'
 
 class homePage {
 
