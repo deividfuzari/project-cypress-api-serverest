@@ -1,22 +1,14 @@
-name: Cypress E2E Tests
+name: Cypress API tests
 
 on: workflow_dispatch
 
 jobs:
 
-  cypress-run:
+  cypress-api:
     runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: false 
-      matrix:
-        containers: [1]
-        
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Slack Notification
+      - name: Slack - Início dos testes
         uses: rtCamp/action-slack-notify@v2.2.0
         if: always()
         env:
@@ -24,24 +16,28 @@ jobs:
           SLACK_USERNAME: qas
           SLACK_COLOR: '#1e81b0'
           MSG_MINIMAL: event,actions url
-          SLACK_TITLE: 'Iniciando a execução dos tests: ' 
+          SLACK_TITLE: 'Iniciando a execução dos testes de API:'
           SLACK_MESSAGE: ':loading_slack:'
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          start: npx cypress run
-          spec: cypress/e2e/spec/serverest-ui.cy.js
-          wait-on: 'https://serverest.dev/'
-          record: true
-          parallel: false 
+          node-version: 18
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress API tests
+        run: npx cypress run --spec "cypress/api/*.cy.js" --record
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      
-      - name: Slack Notification
+
+      - name: Slack - Resultado dos testes
         uses: rtCamp/action-slack-notify@v2.2.0
         if: always()
         env:
@@ -49,8 +45,7 @@ jobs:
           SLACK_USERNAME: qas
           SLACK_COLOR: ${{ job.status }}
           MSG_MINIMAL: event,actions url
-          SLACK_TITLE: 'Resultados dos tests: ' 
-          SLACK_MESSAGE: ':loading_slack:'
+          SLACK_TITLE: 'Resultados dos testes de API:'
+          SLACK_MESSAGE: ':cypress:'
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        
