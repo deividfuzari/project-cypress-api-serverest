@@ -7,7 +7,7 @@ describe('Trabalhando com os Usuarios', () => {
     let number = Math.floor(Math.random() * 9999)
 
     beforeEach(() => {
-        cy.listandoUser(0).then(user => {
+        cy.listingUser(0).then(user => {
             user1 = user
         })
     })
@@ -39,7 +39,7 @@ describe('Trabalhando com os Usuarios', () => {
     })
 
     it('listando o Usuario desejado com o metodo criado', function () {
-        cy.listandoUser(0).then(user => {
+        cy.listingUser(0).then(user => {
             expect(user).to.have.property('nome')
             expect(user).to.have.property('email')
             expect(user).to.have.property('_id')

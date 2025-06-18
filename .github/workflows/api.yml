@@ -1,0 +1,23 @@
+name: Cypress API tests
+
+on: workflow_dispatch
+
+jobs:
+
+  cypress-tests:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Setup Node.js        
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Checkout code        
+        uses: actions/checkout@v4
+
+      - name: Install dependencies 
+        run: npm install
+
+      - name: Run Cypress API tests  
+        run: npx cypress run --spec "cypress/api/*.cy.js"

@@ -1,5 +1,5 @@
 
-Cypress.Commands.add('listandoUser', (user) => {
+Cypress.Commands.add('listingUser', (user) => {
     cy.request({
         method: 'GET',
         url: 'https://serverest.dev/usuarios',
