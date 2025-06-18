@@ -14,19 +14,22 @@ describe('Trabalhando com Produtos', () => {
     })
 
     it('Listando um Produto usando query', () => {
-        cy.request({
-            method: 'GET',
-            url: 'https://serverest.dev/produtos',
-            qs: {
-                _id: "BeeJh5lz3k6kSIzA",
-                nome: "Logitech MX Vertical",
-                descricao: "Mouse",
-                preco: 470
-            }
-        }).then(res => {
-            const nameProduct = res.body.produtos[0].nome
+        cy.registerProductId('deivid').then(idProduct => {
+            const nameProductQs = Cypress.env('nameProduct')
+            cy.request({
+                method: 'GET',
+                url: 'https://serverest.dev/produtos',
+                qs: {
+                    _id: idProduct,
+                    nome: nameProductQs,
+                    descricao: "Mouse",
+                    preco: 500,
+                }
+            }).then(res => {
+                const nameProduct = res.body.produtos[0].nome
 
-            expect(nameProduct).to.eq("Logitech MX Vertical")
+                expect(nameProduct).to.eq(nameProductQs)
+            })
         })
     })
 

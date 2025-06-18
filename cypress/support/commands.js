@@ -69,6 +69,7 @@ Cypress.Commands.add('registerProductId', (name) => {
 
     cy.loginInUserCreate().then(res => {
         const token = Cypress.env('authToken')
+        Cypress.env('nameProduct', `Logitech${name}${number} MX Vertical`)
 
         cy.request({
             method: 'POST',
