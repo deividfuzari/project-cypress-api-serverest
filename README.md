@@ -124,7 +124,8 @@ Executa a spec serverest-ui.cy.js com o repórter mochawesome.
 }
 ```
 
-CI/CD
+## CI/CD
+
 O projeto utiliza GitHub Actions com dois workflows independentes para testes de API e UI, ambos configurados com workflow_dispatch — ou seja, executados manualmente conforme sua escolha.
 
 Essa abordagem proporciona maior controle, evitando execuções automáticas desnecessárias a cada push.
