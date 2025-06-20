@@ -29,7 +29,6 @@ jobs:
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
