@@ -49,7 +49,7 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           MSG_MINIMAL: event,actions url
           SLACK_TITLE: 'Resultados dos tests: ' 
-          SLACK_MESSAGE: ':foguete:'
+          SLACK_MESSAGE: ':rocket:'
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         
