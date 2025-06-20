@@ -189,7 +189,7 @@ Etapas principais:
 
 ---
 
-## Integração com 
+## Integração com Slack
 
 Ambos os workflows possuem integração com Slack. Eles enviam:
 
@@ -251,5 +251,10 @@ Exemplo de notificação:
  🖥️ Testes de UI, fluxos de um usuario admin e normal.
 
 ![image](https://github.com/user-attachments/assets/2f9c438b-20d5-421c-bcec-fdaf5205a059)
+
+---
+
+## Licença
+MIT © Deivid Fuzari
 
 ---
