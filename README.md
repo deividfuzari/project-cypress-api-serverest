@@ -10,15 +10,16 @@ O projeto conta com integração contínua via GitHub Actions e envio de notific
 
 ## Sumário
 
-- [ Sobre o projeto](#📝-sobre-o-projeto)
-- [ Pré-requisitos](#🚀-pré-requisitos)
-- [ Instalação](#📦-instalação)
-- [ Estrutura do projeto](#📁-estrutura-do-projeto)
-- [ Como rodar os testes](#️-como-rodar-os-testes)
-- [ CI/CD](#🔁-cicd)
-- [ Integração com Slack](#🔔-integração-com-slack)
-- [ Contribuindo](#🤝-contribuindo)
-- [ Licença](#📄-licença)
+- [Sobre o projeto](#sobre-o-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Como rodar os testes](#como-rodar-os-testes)
+- [CI/CD](#cicd)
+- [Integração com Slack](#integração-com-slack)
+- [Contribuindo](#contribuindo)
+- [Licença](#licença)
+
 
 ---
 
