@@ -56,13 +56,14 @@ npm install
 
 
 
-# new-project-api-ui-serverest
+** new-project-api-ui-serverest
 
  Projeto cypress para testar API e UI do site serverest : https://serverest.dev/
 
  Utilizando integração com o slack para receber notificações de resultados dos testes.
 
 ![image](https://github.com/user-attachments/assets/6d0cdf2d-19fd-4f56-bd92-3c318b9ab58e)
+
 
 
 _______________________________________________________________________________________________
