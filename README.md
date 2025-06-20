@@ -1,179 +1,58 @@
-🧪 Project Cypress API & UI – Serverest
-Automação de testes da API e da interface gráfica da aplicação Serverest utilizando Cypress.
+# 🧪 Project Cypress API & UI – Serverest
+
+![API Workflow](https://github.com/deividfuzari/project-cypress-api-ui-serverest/actions/workflows/api.yml/badge.svg)
+![E2E Workflow](https://github.com/deividfuzari/project-cypress-api-ui-serverest/actions/workflows/e2e.yml/badge.svg)
+
+Automação de testes da API e da interface gráfica da aplicação [Serverest](https://serverest.dev/) utilizando Cypress.  
 O projeto conta com integração contínua via GitHub Actions e envio de notificações para o Slack.
 
-📑 Sumário
-📝 Sobre o projeto
+---
 
-🚀 Pré-requisitos
+## 📑 Sumário
 
-📦 Instalação
+- [📝 Sobre o projeto](#📝-sobre-o-projeto)
+- [🚀 Pré-requisitos](#🚀-pré-requisitos)
+- [📦 Instalação](#📦-instalação)
+- [📁 Estrutura do projeto](#📁-estrutura-do-projeto)
+- [▶️ Como rodar os testes](#️-como-rodar-os-testes)
+- [🔁 CI/CD](#🔁-cicd)
+- [🔔 Integração com Slack](#🔔-integração-com-slack)
+- [🤝 Contribuindo](#🤝-contribuindo)
+- [📄 Licença](#📄-licença)
 
-📁 Estrutura do projeto
+---
 
-▶️ Como rodar os testes
+## 📝 Sobre o projeto
 
-🔁 CI/CD
-
-🔔 Integração com Slack
-
-🤝 Contribuindo
-
-📄 Licença
-
-📝 Sobre o projeto
 Este repositório tem como objetivo automatizar testes:
 
-API REST do Serverest (login, usuários, produtos, carrinhos)
-
-Interface (UI) com navegação, formulários e validações
+- ✅ API REST do Serverest (login, usuários, produtos, carrinhos)
+- ✅ Interface (UI) com navegação, formulários e validações
 
 Além disso, conta com:
 
-Workflows separados para testes de API e UI (api.yml, e2e.yml)
+- Workflows separados para testes de API e UI (`api.yml`, `e2e.yml`)
+- Notificações para Slack informando o status da execução
+- Organização por Page Objects para testes de interface
 
-Notificações para Slack informando o status da execução
+---
 
-Organização por Page Objects para testes de interface
+## 🚀 Pré-requisitos
 
-🚀 Pré-requisitos
-Node.js v16+
+- Node.js v16+
+- npm (ou yarn)
+- Webhook do Slack configurado
+- Cypress instalado localmente
 
-npm (ou yarn)
+---
 
-Webhook do Slack configurado
+## 📦 Instalação
 
-Cypress instalado global/localmente
-
-📦 Instalação
-bash
-Copiar
-Editar
+```bash
 git clone https://github.com/deividfuzari/project-cypress-api-ui-serverest.git
 cd project-cypress-api-ui-serverest
 npm install
-📁 Estrutura do projeto
-bash
-Copiar
-Editar
-.github/
-└── workflows/
-    ├── api.yml             # Workflow para testes de API
-    └── e2e.yml             # Workflow para testes de UI
 
-cypress/
-├── api/                    # Testes de API
-│   ├── carrinhos.api.cy.js
-│   ├── login.api.cy.js
-│   ├── produtos.api.cy.js
-│   └── usuarios.api.cy.js
-│
-├── e2e/
-│   ├── pages/              # Page Objects para testes de UI
-│   │   ├── home/
-│   │   │   ├── home.page.js
-│   │   │   └── home.elements.js
-│   │   ├── login/
-│   │   │   ├── login.page.js
-│   │   │   └── login.elements.js
-│   │   ├── product/
-│   │   │   ├── product.page.js
-│   │   │   └── product.elements.js
-│   │   └── user/
-│   │       ├── user.page.js
-│   │       └── user.elements.js
-│   │
-│   └── spec/
-│       └── serverest-ui.cy.js  # Spec principal de UI
-│
-├── fixtures/
-│   └── example.json       # Dados mockados
-│
-├── support/
-│   ├── commands.js        # Comandos customizados
-│   └── e2e.js             # Setup global dos testes
-
-cypress.config.js          # Configurações do Cypress
-package.json               # Scripts de execução e dependências
-▶️ Como rodar os testes
-O package.json já contém scripts prontos para facilitar a execução:
-
-🔌 Testes de API
-bash
-Copiar
-Editar
-npm run test-api
-Esse comando executa todos os arquivos .cy.js dentro da pasta cypress/api usando o repórter mochawesome.
-
-💻 Testes de UI
-bash
-Copiar
-Editar
-npm run test-ui
-Esse comando executa a spec de interface serverest-ui.cy.js.
-
-📂 Scripts no package.json
-json
-Copiar
-Editar
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "test-ui": "cypress run --spec cypress/e2e/spec/serverest-ui.cy.js --reporter mochawesome",
-  "test-api": "cypress run --spec cypress/api/*.cy.js --reporter mochawesome"
-}
-🔁 CI/CD
-O projeto possui dois workflows de integração contínua separados:
-
-.github/workflows/api.yml: roda testes de API
-
-.github/workflows/e2e.yml: roda testes de UI
-
-Ambos são executáveis via workflow_dispatch ou em eventos como push/pull_request. Os passos incluem:
-
-Instalação de dependências
-
-Execução dos testes
-
-Geração de relatórios
-
-Notificação no Slack
-
-🔔 Integração com Slack
-O workflow inclui envio de mensagens para o canal do Slack com:
-
-Status da execução (:white_check_mark: ou :x:)
-
-Link para logs (se aplicável)
-
-Cor e usuário configuráveis
-
-Exemplo de uso da action no GitHub:
-
-yaml
-Copiar
-Editar
-- name: Slack - Início dos testes
-  uses: rtCamp/action-slack-notify@v2.2.0
-  if: always()
-  env:
-    SLACK_CHANNEL: notification-tests
-    SLACK_USERNAME: qas
-    SLACK_COLOR: '#1e81b0'
-    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    MSG_MINIMAL: true
-🤝 Contribuindo
-Faça um fork
-
-Crie uma branch com sua feature: git checkout -b minha-feature
-
-Commit suas mudanças: git commit -m 'feat: nova funcionalidade'
-
-Push para o seu fork: git push origin minha-feature
-
-Crie um Pull Request
-
-📄 Licença
-MIT © Deivid Fuzari
 
 
 
