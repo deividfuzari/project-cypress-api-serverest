@@ -8,7 +8,7 @@ O projeto conta com integração contínua via GitHub Actions e envio de notific
 
 ---
 
-## 📑 Sumário
+## Sumário
 
 - [ Sobre o projeto](#📝-sobre-o-projeto)
 - [ Pré-requisitos](#🚀-pré-requisitos)
