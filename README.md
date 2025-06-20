@@ -55,6 +55,8 @@ cd project-cypress-api-ui-serverest
 npm install
 ```
 
+---
+
 ## Estrutura do Projeto
 
 ```bash
@@ -100,6 +102,8 @@ cypress.config.js
 package.json
 ```
 
+---
+
 ## Como rodar os testes
 O package.json já contém scripts prontos para facilitar a execução:
 
@@ -123,6 +127,8 @@ Executa a spec serverest-ui.cy.js com o repórter mochawesome.
   "test-api": "cypress run --spec cypress/api/*.cy.js --reporter mochawesome"
 }
 ```
+
+---
 
 ## CI/CD
 
@@ -180,4 +186,7 @@ Etapas principais:
 🔎 Objetivo: Executar os testes de interface presentes em cypress/e2e/spec/serverest-ui.cy.js com suporte a espera do ambiente remoto (wait-on) e integração simplificada com Cypress Dashboard (opcional).
 
 💡 Ambos os workflows contam com envio de notificações para o Slack, informando início e término das execuções (com status de sucesso ou falha).
+
+---
+
 
