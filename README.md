@@ -55,7 +55,9 @@ cd project-cypress-api-ui-serverest
 npm install
 ```
 
-## Estrutura do Projeto
+## Estrutura do 
+
+```bash
 
 .github/
 └── workflows/
@@ -96,5 +98,5 @@ cypress/
 
 cypress.config.js
 package.json
-
+```
 
