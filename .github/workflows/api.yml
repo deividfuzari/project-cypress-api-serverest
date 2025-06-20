@@ -18,7 +18,7 @@ jobs:
           SLACK_COLOR: '#1e81b0'
           MSG_MINIMAL: event,actions url
           SLACK_TITLE: 'Iniciando a execução dos testes de API:'
-          SLACK_MESSAGE: ':loading_slack:'
+          SLACK_MESSAGE: ':eyes:'
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
@@ -47,6 +47,6 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           MSG_MINIMAL: event,actions url
           SLACK_TITLE: 'Resultados dos testes de API:'
-          SLACK_MESSAGE: ':cypress:'
+          SLACK_MESSAGE: ':rocket:'
           SLACK_FOOTER: Powered By Serverest
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
