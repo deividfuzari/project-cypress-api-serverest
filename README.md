@@ -17,7 +17,7 @@ O projeto conta com integração contínua via GitHub Actions e envio de notific
 - [Como rodar os testes](#como-rodar-os-testes)
 - [CI/CD](#cicd)
 - [Integração com Slack](#integração-com-slack)
-- [Evidencias](#evidencias)
+- [Evidências](#evidências)
 - [Licença](#licença)
 
 
