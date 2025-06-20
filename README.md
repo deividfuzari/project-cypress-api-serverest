@@ -55,7 +55,7 @@ cd project-cypress-api-ui-serverest
 npm install
 ```
 
-## Estrutura do 
+## Estrutura do Projeto
 
 ```bash
 
@@ -117,8 +117,6 @@ Executa a spec serverest-ui.cy.js com o repórter mochawesome.
 
 📂 Scripts disponíveis
 ```json
-Copiar
-Editar
 "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
   "test-ui": "cypress run --spec cypress/e2e/spec/serverest-ui.cy.js --reporter mochawesome",
