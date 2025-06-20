@@ -1,4 +1,4 @@
-# new-project-api-serverest
+# new-project-ui-api-serverest
 
  Projeto cypress para testar API e UI do site serverest : https://serverest.dev/
 
