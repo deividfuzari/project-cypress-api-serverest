@@ -61,8 +61,8 @@ npm install
 
 .github/
 └── workflows/
-    ├── api.yml             # Workflow para testes de API (manual)
-    └── e2e.yml             # Workflow para testes de UI (padrão Cypress)
+    ├── api.yml             # Workflow para testes de API (manual criada por mim)
+    └── e2e.yml             # Workflow para testes de UI (padrão Cypress.io)
 
 cypress/
 ├── api/                    # Testes de API
@@ -98,5 +98,31 @@ cypress/
 
 cypress.config.js
 package.json
+```
+
+## Como rodar os testes
+O package.json já contém scripts prontos para facilitar a execução:
+
+🔌 Testes de API
+```bash
+npm run test-api
+```
+Executa todos os arquivos .cy.js da pasta cypress/api com o repórter mochawesome.
+
+💻 Testes de UI
+```bash
+npm run test-ui
+```
+Executa a spec serverest-ui.cy.js com o repórter mochawesome.
+
+📂 Scripts disponíveis
+```json
+Copiar
+Editar
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "test-ui": "cypress run --spec cypress/e2e/spec/serverest-ui.cy.js --reporter mochawesome",
+  "test-api": "cypress run --spec cypress/api/*.cy.js --reporter mochawesome"
+}
 ```
 
