@@ -22,7 +22,7 @@ O projeto conta com integração contínua via GitHub Actions e envio de notific
 
 ---
 
-## 📝 Sobre o projeto
+## Sobre o projeto
 
 Este repositório tem como objetivo automatizar testes:
 
@@ -37,7 +37,7 @@ Além disso, conta com:
 
 ---
 
-## 🚀 Pré-requisitos
+## Pré-requisitos
 
 - Node.js v16+
 - npm (ou yarn)
@@ -46,7 +46,7 @@ Além disso, conta com:
 
 ---
 
-## 📦 Instalação
+## Instalação
 
 ```bash
 git clone https://github.com/deividfuzari/project-cypress-api-ui-serverest.git
