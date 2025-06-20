@@ -93,7 +93,7 @@ cypress/
 │   └── example.json
 
 ├── support/
-│   ├── commands.js
+│   ├── commands.js  # Onde armazenei os metodos de API
 │   └── e2e.js
 
 cypress.config.js
@@ -123,4 +123,60 @@ Executa a spec serverest-ui.cy.js com o repórter mochawesome.
   "test-api": "cypress run --spec cypress/api/*.cy.js --reporter mochawesome"
 }
 ```
+
+CI/CD
+O projeto utiliza GitHub Actions com dois workflows independentes para testes de API e UI, ambos configurados com workflow_dispatch — ou seja, executados manualmente conforme sua escolha.
+
+Essa abordagem proporciona maior controle, evitando execuções automáticas desnecessárias a cada push.
+
+⚙️ Workflows disponíveis
+✅ api.yml – Testes de API (estrutura personalizada por mim)
+Este workflow foi construído de forma manual, com uma sequência explícita de etapas. A ideia é manter maior controle sobre o ambiente e a execução, instalando dependências passo a passo.
+
+Etapas principais:
+
+```yaml
+
+- name: Setup Node.js
+  uses: actions/setup-node@v4
+  with:
+    node-version: 18
+
+- name: Checkout code
+  uses: actions/checkout@v4
+
+- name: Install dependencies
+  run: npm install
+
+- name: Run Cypress API tests
+  run: npx cypress run --spec "cypress/api/*.cy.js" --record
+  env:
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+```
+🔎 Objetivo: Executar os testes de API localizados em cypress/api/, com granularidade na configuração.
+
+e2e.yml – Testes de UI (seguindo padrão Cypress.io)
+Este workflow segue a estrutura sugerida pela própria equipe do Cypress.io, utilizando a action oficial cypress-io/github-action, que simplifica diversas tarefas automaticamente.
+
+Etapas principais:
+
+```yaml
+
+- name: Checkout
+  uses: actions/checkout@v4
+
+- name: Cypress run
+  uses: cypress-io/github-action@v6
+  with:
+    start: npx cypress run
+    spec: cypress/e2e/spec/serverest-ui.cy.js
+    wait-on: 'https://serverest.dev/'
+    record: true
+    parallel: false
+  env:
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+```
+🔎 Objetivo: Executar os testes de interface presentes em cypress/e2e/spec/serverest-ui.cy.js com suporte a espera do ambiente remoto (wait-on) e integração simplificada com Cypress Dashboard (opcional).
+
+💡 Ambos os workflows contam com envio de notificações para o Slack, informando início e término das execuções (com status de sucesso ou falha).
 
