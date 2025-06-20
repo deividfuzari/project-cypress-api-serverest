@@ -17,7 +17,7 @@ O projeto conta com integração contínua via GitHub Actions e envio de notific
 - [Como rodar os testes](#como-rodar-os-testes)
 - [CI/CD](#cicd)
 - [Integração com Slack](#integração-com-slack)
-- [Contribuindo](#contribuindo)
+- [Evidencias](#evidencias)
 - [Licença](#licença)
 
 
@@ -189,4 +189,67 @@ Etapas principais:
 
 ---
 
+## Integração com 
 
+Ambos os workflows possuem integração com Slack. Eles enviam:
+
+✅ Status da execução (sucesso ou falha)
+
+🔗 Link para logs ou report
+
+🎨 Cor e nome do bot personalizados
+
+Exemplo de notificação:
+```yaml
+- name: Slack - Início dos testes
+  uses: rtCamp/action-slack-notify@v2.2.0
+  if: always()
+  env:
+    SLACK_CHANNEL: notification-tests
+    SLACK_USERNAME: qas
+    SLACK_COLOR: '#1e81b0'
+    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    MSG_MINIMAL: true
+```
+
+---
+
+## Evidências
+
+ 🔔 Slack
+
+![image](https://github.com/user-attachments/assets/6d0cdf2d-19fd-4f56-bd92-3c318b9ab58e)
+
+---
+
+🔌 Testes de API utilizando o swagger do severest.
+
+ 🛒 Carrinho
+ 
+![image](https://github.com/user-attachments/assets/602272cb-376f-434e-b825-4aae181e088e
+
+---
+
+ 🔐 Login
+
+![image](https://github.com/user-attachments/assets/bfcc10a6-ad3b-4d13-afd7-2b9b7420b1ae)
+
+---
+
+ 📦 Produtos
+
+![image](https://github.com/user-attachments/assets/f2eb0138-0dcc-4cb9-b71d-0ef196610962)
+
+---
+
+ 👥 Usuarios
+
+![image](https://github.com/user-attachments/assets/6331d656-d3f3-4375-93dc-a52fa50f366f)
+
+---
+
+ 🖥️ Testes de UI, fluxos de um usuario admin e normal.
+
+![image](https://github.com/user-attachments/assets/2f9c438b-20d5-421c-bcec-fdaf5205a059)
+
+---
