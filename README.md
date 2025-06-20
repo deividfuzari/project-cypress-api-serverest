@@ -226,7 +226,7 @@ Exemplo de notificação:
 
  🛒 Carrinho
  
-![image](https://github.com/user-attachments/assets/602272cb-376f-434e-b825-4aae181e088e
+![image](https://github.com/user-attachments/assets/602272cb-376f-434e-b825-4aae181e088e)
 
 ---
 
