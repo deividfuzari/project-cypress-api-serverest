@@ -53,5 +53,48 @@ Além disso, conta com:
 git clone https://github.com/deividfuzari/project-cypress-api-ui-serverest.git
 cd project-cypress-api-ui-serverest
 npm install
+```
+
+## Estrutura do Projeto
+
+.github/
+└── workflows/
+    ├── api.yml             # Workflow para testes de API (manual)
+    └── e2e.yml             # Workflow para testes de UI (padrão Cypress)
+
+cypress/
+├── api/                    # Testes de API
+│   ├── carrinhos.api.cy.js
+│   ├── login.api.cy.js
+│   ├── produtos.api.cy.js
+│   └── usuarios.api.cy.js
+│
+├── e2e/
+│   ├── pages/              # Page Objects para testes de UI
+│   │   ├── home/
+│   │   │   ├── home.page.js
+│   │   │   └── home.elements.js
+│   │   ├── login/
+│   │   │   ├── login.page.js
+│   │   │   └── login.elements.js
+│   │   ├── product/
+│   │   │   ├── product.page.js
+│   │   │   └── product.elements.js
+│   │   └── user/
+│   │       ├── user.page.js
+│   │       └── user.elements.js
+│   │
+│   └── spec/
+│       └── serverest-ui.cy.js  # Spec principal de UI
+│
+├── fixtures/
+│   └── example.json
+
+├── support/
+│   ├── commands.js
+│   └── e2e.js
+
+cypress.config.js
+package.json
 
 
